@@ -62,7 +62,7 @@ echo Create directories that will contain files for our live environment files a
 mkdir -p $HOME/LIVE_BOOT/{staging/{EFI/boot,boot/grub/x86_64-efi,isolinux,live},tmp}
 
 echo Compress the chroot environment into a Squash filesystem.
-cp /mnt/immortalwrt.img ${HOME}/LIVE_BOOT/chroot/mnt/
+cp /mnt/kwrt-10.30.img ${HOME}/LIVE_BOOT/chroot/mnt/
 ls ${HOME}/LIVE_BOOT/chroot/mnt/
 mksquashfs $HOME/LIVE_BOOT/chroot $HOME/LIVE_BOOT/staging/live/filesystem.squashfs -e boot
 
@@ -113,6 +113,6 @@ xorriso \
     "${HOME}/LIVE_BOOT/staging"
 
 echo Copy output
-cp -v $HOME/LIVE_BOOT/debian-custom.iso /output/immortalwrt-installer-x86_64.iso
-chmod -v 666 /output/immortalwrt-installer-x86_64.iso
+cp -v $HOME/LIVE_BOOT/debian-custom.iso /output/kwrt-10.30.iso
+chmod -v 666 /output/kwrt-10.30.iso
 ls -lah /output
