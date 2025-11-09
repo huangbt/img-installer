@@ -32,7 +32,7 @@ if [[ $? -eq 0 ]]; then
   echo "正在解压为:kwrt-10.30.img"
   gzip -d imm/kwrt-10.30.img.gz
   ls -lh imm/
-  echo "准备合成 immortalwrt 安装器"
+  echo "准备合成 kwrt-10.30.img 安装器"
 else
   echo "下载失败！"
   exit 1
@@ -42,6 +42,6 @@ mkdir -p output
 docker run --privileged --rm \
         -v $(pwd)/output:/output \
         -v $(pwd)/supportFiles:/supportFiles:ro \
-        -v $(pwd)/imm/immortalwrt.img:/mnt/kwrt-10.30.img \
+        -v $(pwd)/imm/kwrt-10.30.img:/mnt/kwrt-10.30.img \
         debian:buster \
         /supportFiles/immortalwrt/build.sh
